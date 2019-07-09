@@ -1,4 +1,4 @@
-package io.ldnr.teamc.pizzeria.controller;
+package io.ldnr.teamc.pizzeria;
 
 import java.util.Map;
 

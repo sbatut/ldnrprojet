@@ -1,4 +1,4 @@
-package io.ldnr.teamc.pizzeria.controller;
+package io.ldnr.teamc.pizzeria.usersecurity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 
 	@Controller
-	public class SessionController {
+	public class UsersecurityController {
 
 		@GetMapping("/session")
 		public String process(Model model, HttpSession session) {

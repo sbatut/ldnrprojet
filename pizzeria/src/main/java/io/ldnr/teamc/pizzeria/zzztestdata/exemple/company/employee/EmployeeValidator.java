@@ -1,4 +1,4 @@
-package io.ldnr.teamc.pizzeria.testdata;
+package io.ldnr.teamc.pizzeria.zzztestdata.exemple.company.employee;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

@@ -1,4 +1,4 @@
-package io.ldnr.teamc.pizzeria.testdata;
+package io.ldnr.teamc.pizzeria.zzztestdata.exemple.company.employee;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
