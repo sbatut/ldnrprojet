@@ -51,6 +51,7 @@ public class GerantPizzasController {
 			 pizza.setLibelle(libelle);
 			 pizza.setPrix(prix);
 			 
+			 
 			 //ajout des ingredients des case a cochez du formulaire
 			 for (Map.Entry<String, String> param : allParams.entrySet())
 			 {
@@ -86,7 +87,7 @@ public class GerantPizzasController {
 		 {
 			 repoPizza.deleteById(idPizza);
 		 }
-		 return  "redirect:/gerant/gestioncarte";
+		 return  "redirect:/gerant/carte";
 	}
 	
 }
