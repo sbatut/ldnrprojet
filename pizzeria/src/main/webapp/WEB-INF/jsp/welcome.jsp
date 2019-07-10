@@ -9,9 +9,11 @@
 <c:url value="/css/main.css" var="jstlCss" />
 <link href="${jstlCss}" rel="stylesheet" />
 
-<title>Insert title here</title>
+<title>Bienvenue sur le site MIAM-MIAM</title>
 </head>
 <body>
-<h1>test page2</h1>
+<h1>Bienvenue sur le site MIAM-MIAM</h1>
+<h2>Site de commande en ligne de pizza</h2>
+
 </body>
 </html>

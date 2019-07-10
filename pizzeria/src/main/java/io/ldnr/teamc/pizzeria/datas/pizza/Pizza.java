@@ -1,5 +1,6 @@
 package io.ldnr.teamc.pizzeria.datas.pizza;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -19,6 +20,9 @@ public class Pizza {
 	 @Id
 	 @GeneratedValue(strategy = GenerationType.IDENTITY)
 	 private Integer id;
+	 
+     private String libelle;
+     private Float prix;
 
 	 public Integer getId() {
 		return id;
@@ -51,13 +55,17 @@ public class Pizza {
 	public void setCompoIngredient(List<Ingredient> compoIngredient) {
 		this.compoIngredient = compoIngredient;
 	}
+	
+	public void addCompoIngredient(Ingredient ingredient)
+	{
+		this.compoIngredient.add(ingredient);
+	}
 
-	private String libelle;
-	 private Float prix;
+
 	 
 	 @ManyToMany
 	 @JoinTable(name="ingredient_pizza",joinColumns=@JoinColumn(name="pizza_id"),
 	 	inverseJoinColumns=@JoinColumn(name="ingredient_id")
 	 )
-	 public List<Ingredient> compoIngredient;
+	 public List<Ingredient> compoIngredient = new ArrayList<Ingredient>();
 }
