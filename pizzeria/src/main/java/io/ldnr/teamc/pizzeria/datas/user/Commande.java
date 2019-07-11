@@ -1,6 +1,6 @@
 package io.ldnr.teamc.pizzeria.datas.user;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -8,21 +8,26 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.persistence.Version;
 
 import org.hibernate.annotations.Type;
 
 
 @Entity
-@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+@Table(name="commande")
 public class Commande {
 	
 	@Id
 	private Integer numero ;
 	
 	 @Version
-	    @Type(type = "dbtimestamp")
-	private Date date;
+	    //@Type(type = "dbtimestamp")
+	//private Date date;
+	 @Temporal(TemporalType.TIMESTAMP)
+    private Date date;
 	
 	@ManyToOne
 	@JoinColumn(name="user_id")
