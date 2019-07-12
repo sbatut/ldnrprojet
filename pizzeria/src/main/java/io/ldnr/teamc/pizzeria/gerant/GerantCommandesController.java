@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.context.request.WebRequest;
 
 import io.ldnr.teamc.pizzeria.datas.user.Commande;
 import io.ldnr.teamc.pizzeria.datas.user.CommandeRepository;
@@ -26,7 +27,8 @@ public class GerantCommandesController {
 	
 	 
 	 @GetMapping(path = "commandes")
-	 public String gestionCommandes(ModelMap pModel) {
+	 public String gestionCommandes(ModelMap pModel,WebRequest wRequest) {
+		 
 	  pModel.addAttribute("listecommandes",repoCommande.findAll());
 	  return "gerant/gestioncommandes";
 	 }

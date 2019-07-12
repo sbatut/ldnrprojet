@@ -122,10 +122,10 @@ public class UserController {
 		// Dispaching en fonction de l'utilisateur connecté
 		if (roleIn.equals("USER")) {
 			wRequest.setAttribute("SESSION_USER", u, WebRequest.SCOPE_SESSION);
-			return "/connexionUsers/connexionUserOk";
+			return "/";
 		} else if (roleIn.equals("ADMINISTRATOR")) {
 			wRequest.setAttribute("SESSION_ADMIN", u, WebRequest.SCOPE_SESSION);
-			return "/connexionUsers/connexionAdminOk";
+			return "redirect:/gerant/carte";
 		} else {
 			return "/users/userErrorLogin";
 		}
