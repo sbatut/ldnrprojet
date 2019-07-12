@@ -22,7 +22,7 @@
 
 <div id="maincontent">
 <div class="innertube">
-     	<%@include file="menugerant.jsp" %>
+
      
 
         <h1>Gestion des ingredients</h1>

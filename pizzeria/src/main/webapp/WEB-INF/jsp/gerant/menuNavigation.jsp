@@ -10,7 +10,7 @@
 
 <div id="menu1">
 	<ul>
-		<li><a href="#" id="current">Menu item one</a></li>
+		<li><a href="#" id="current">Gestioon Admin</a></li>
 		<li><a href="/gerant/carte/">Gestion carte</a></li>		
 		<li><a href="/gerant/carte/pizza/add">Ajouter pizza</a></li>
 		<li class="lmenu"><a href="/gerant/ingredients">Gestion des ingredients</a></li>
