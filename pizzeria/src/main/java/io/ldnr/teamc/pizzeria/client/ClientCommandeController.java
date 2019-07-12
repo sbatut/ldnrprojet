@@ -136,12 +136,12 @@ public class ClientCommandeController {
 		
 		
 		User u = new User();
-		u.setNom("toto");
-		u.setPrenom("tt");
-		u.setLogin("ll");
-		u.setRole("gg");
-		u.setPasswd("fyf");
-		u.setAdresse("gygg");
+		u.setNom("undefined");
+		u.setPrenom("undefined");
+		u.setLogin("undefined");
+		u.setRole("VISITEUR");
+		u.setPasswd("undefined");
+		u.setAdresse("undefined");
 		repositoryUser.save(u);
 		
 
