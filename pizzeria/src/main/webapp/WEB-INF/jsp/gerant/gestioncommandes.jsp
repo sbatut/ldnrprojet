@@ -8,8 +8,21 @@
 		<link href="/css/gerant.css" rel="stylesheet" />
 		<meta charset="UTF-8">
 		<title>Liste des commandes</title>
+<c:url value="/css/main.css" var="jstlCss" />
+<link href="${jstlCss}" rel="stylesheet" />
 	</head>
 	<body>
+		<div id="framecontent">
+<div class="innertube">
+
+<jsp:include page="/WEB-INF/jsp/gerant/menuNavigation.jsp"></jsp:include>
+
+</div>
+</div>
+
+<div id="maincontent">
+<div class="innertube">
+
 		<fieldset>
 				<legend>Commandes En Cours</legend>
 				<table>
@@ -68,5 +81,6 @@
 					</c:forEach>
 				</table>
 		</fieldset>
+		</div></div>
 	</body>
 </html>

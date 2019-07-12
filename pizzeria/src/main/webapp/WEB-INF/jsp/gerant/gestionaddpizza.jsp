@@ -8,8 +8,21 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Ajouter une pizza</title>
+<c:url value="/css/main.css" var="jstlCss" />
+<link href="${jstlCss}" rel="stylesheet" />
 	</head>
 	<body>
+	<div id="framecontent">
+<div class="innertube">
+
+<jsp:include page="/WEB-INF/jsp/gerant/menuNavigation.jsp"></jsp:include>
+
+</div>
+</div>
+
+<div id="maincontent">
+<div class="innertube">
+
 		<div class="ajout">
           <form method="post" action="/gerant/carte/pizza/add" >
 		   <input type="hidden" name="action" value="creer">
@@ -26,5 +39,6 @@
 		   <input type="submit" value="Ajouter">
 		  </form>
 		</div>
+		</div></div>
 	</body>
 </html>

@@ -7,7 +7,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Gestion de la carte</title>
-		<c:url value="/css/main.css" var="jstlCss" />
+<c:url value="/css/main.css" var="jstlCss" />
 <link href="${jstlCss}" rel="stylesheet" />
 	</head>
 	<body>

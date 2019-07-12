@@ -8,8 +8,20 @@
 		<link href="/css/gerant.css" rel="stylesheet" />
 		<meta charset="UTF-8">
 		<title>Modification d'une commande</title>
+		<c:url value="/css/main.css" var="jstlCss" />
+<link href="${jstlCss}" rel="stylesheet" />
 	</head>
 	<body>
+		<div id="framecontent">
+<div class="innertube">
+
+<jsp:include page="/WEB-INF/jsp/gerant/menuNavigation.jsp"></jsp:include>
+
+</div>
+</div>
+
+<div id="maincontent">
+<div class="innertube">
 	  <h1>Modification d'une commande</h1>
 		  <form method="post" action="/gerant/commandes/update" >
 			   <input type="hidden" name="action" value="update">
@@ -39,5 +51,6 @@
 			   </label>
 			   <input type="submit" value="Modifier status">
 		  </form>
+		  </div></div>
 	</body>
 </html>
