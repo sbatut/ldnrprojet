@@ -1,15 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
-<title>Insert title here</title>
+<title>Menu Gérant</title>
 </head>
 <body>
-	<c:if test = "${!SESSION_ADMIN.role.equals(\"ADMINISTRATOR\")}">
-		<jsp:forward page="/"/>
-	</c:if>
 
 <div id="menu1">
 	<ul>
