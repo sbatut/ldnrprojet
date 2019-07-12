@@ -15,6 +15,11 @@
 <title>Inscription page</title>
 </head>
 <body>
+<div id="headerfixed">
+    <ul>
+    <li><a href="/">Accueil</a></li>
+    </ul>
+</div>
 <div class="container">
 
 <!-- Form-->

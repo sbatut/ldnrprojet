@@ -45,15 +45,26 @@ public class UserController {
 	
 	@PostMapping("/addformAction")
 	public String submitFormInscription(@ModelAttribute("addformAction") @Valid User user, BindingResult result,
-			Model model) throws NoSuchAlgorithmException {
+			Model model, @RequestParam Map<String, String> paramLogin, WebRequest wRequest) throws NoSuchAlgorithmException {
+		
+		/**
+		 * Verifie si login existe en BD
+		 */
+		String loginPost = (paramLogin.get("login"));
+		User u = userRepo.findByLogin(loginPost);
 
+		// si l'utilisateur n'est pas en BD Error page
+		if (u != null) {
+			return "users/userErrorLoginExist";
+		}
+		
+		
+		
 		if (result.hasErrors()) {
 			return "users/userErrorInscription";
 		}
 
-		// String mp = md5(model.addAttribute("password", user.getPasswd()));
 		String secPwd = user.getPasswd();
-		// UsersecurityController us = new UsersecurityController();
 		String securityPwd = UsersecurityController.getMD5Pwd(secPwd);
 		user.setPasswd(securityPwd);
 
@@ -89,6 +100,8 @@ public class UserController {
 		if (u == null) {
 			return "users/userErrorLogin";
 		}
+		
+		
 
 		// petite vérif du login
 		if (u.getLogin().isEmpty()  || u.getLogin() == null) {
@@ -98,6 +111,13 @@ public class UserController {
 		// recup le role et pwd user en BD
 		String pwdIn = u.getPasswd();
 		String roleIn = u.getRole();
+		String loginIn = u.getLogin();
+		
+		if(loginPost.equals(loginIn)) {
+			return "users/userErrorLogin";
+		}
+		
+		
 
 		// UsersecurityController us = new UsersecurityController();
 		String securityPwd = UsersecurityController.getMD5Pwd(pwdPost);
@@ -136,14 +156,14 @@ public class UserController {
 	@GetMapping(value="/logout_user")
 	public String LogoutUser(@ModelAttribute User user, WebRequest wRequest) {
 	wRequest.removeAttribute("SESSION_USER", WebRequest.SCOPE_SESSION);
-	return "redirect:login";
+	return "/connexionUsers/connexionLogout";
 	}
 	
 	// Déconnexion Admin
 	@GetMapping(value="/logout_admin")
 	public String LogoutAdmin(@ModelAttribute User user, WebRequest wRequest) {
-	wRequest.removeAttribute("SESSION_USER", WebRequest.SCOPE_SESSION);
-	return "redirect:login";
+	wRequest.removeAttribute("SESSION_ADMIN", WebRequest.SCOPE_SESSION);
+	return "/connexionUsers/connexionLogout";
 	}
 
 	

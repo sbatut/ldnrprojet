@@ -9,7 +9,8 @@
 <c:url value="/css/main.css" var="jstlCss" />
 <c:url value="/css/users.css" var="jstlCss" />
 <link href="${jstlCss}" rel="stylesheet" />
-<title>Inscription page</title>
+
+<title>Inscription page error login</title>
 </head>
 <body>
 <div id="headerfixed">
@@ -25,36 +26,26 @@
 <div class="form">
   <div class="form-toggle"></div>
   <div class="form-panel one">
-    	
+    
     <div class="form-header">
-<h1>Inscription réalisée avec Succèss</h1>	
+	<h1>Ce login existe dans notre base</h1>
     </div>
     
     <div class="form-content">
-		   
-	<h2 class="errorform">Vos informations d'inscription</h2>
+			   
+	<h2 class="errorform">Ce login existe déjà, merci d'en choisir un autre.</h2>
 	
 				   
-			<p>Nom: ${nom}</p>
-			
-			<p>Prénom: ${prenom}</p>
-				
-			<p>Login: ${login}</p>
-			<p>Pwd: ${passwd}</p>
-			
-			<p>Role: ${role}</p>
-			<p>Adresse: ${adresse}</p>
+			<p style="text-align:center;"><a href="/inscription">Revenir en arrière</a></p>
 
 
- <div class="formbutton"><button type="button" class="btn btn-success"> <a href="/login" role="button">Aller à votre page de connexion</a></button></div>
     </div>
   </div>
   
 
 </div>  
      
-</div> 
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>  
+</div>   
 
 </body>
 </html>
