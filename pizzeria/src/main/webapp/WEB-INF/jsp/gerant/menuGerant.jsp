@@ -7,9 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<c:if test = "${!SESSION_ADMIN.role.equals(\"ADMINISTRATOR\")}">
-		<jsp:forward page="/"/>
-	</c:if>
+
 
 <div id="menu1">
 	<ul>

@@ -87,6 +87,9 @@ public class ClientCommandeController {
 	
 	@GetMapping(path= "panier/afficher")
 	public String afficherPanier(ModelMap pModel,HttpServletRequest request) {
+		
+		HttpSession session=request.getSession();
+		if(session.getAttribute("panier")==null) return "redirect:/client/choix";
 		Panier panier=(Panier) request.getSession().getAttribute("panier");
 		
 		pModel.addAttribute("listepizzas",panier.getAll());
