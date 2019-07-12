@@ -10,12 +10,34 @@
 <c:url value="/css/users.css" var="jstlCss" />
 <link href="${jstlCss}" rel="stylesheet" />
 
-<title>Inscription page</title>
+<title>Error login page</title>
 </head>
 <body>
 <div class="container">
-<h1>Page d'inscription</h1>
 
+  
+  
+<!-- Form-->
+<div class="form">
+  <div class="form-toggle"></div>
+  <div class="form-panel one">
+    
+    <div class="form-header">
+	<h1>Oups !! Error De connexion</h1>
+    </div>
+    
+    <div class="form-content">
+			   
+			<p>Merci de recommencer</p>
+
+		<p>Role: ${roleIn}</p>
+		<p>Login: ${loginIn}</p>
+		<p>Psd: ${pwdIn}</p>
+    </div>
+  </div>
+  
+
+</div>  
      
 </div>   
 

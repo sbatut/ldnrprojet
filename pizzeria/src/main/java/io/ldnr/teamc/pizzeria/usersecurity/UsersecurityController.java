@@ -1,5 +1,7 @@
 package io.ldnr.teamc.pizzeria.usersecurity;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,4 +43,23 @@ import org.springframework.web.bind.annotation.RequestParam;
 			request.getSession().setAttribute("MY_SESSION_MESSAGES", messages);
 			return "redirect:/";
 		}
+		
+		
+		/*
+		 * Seurity Activate
+		 */
+		public static String getMD5Pwd(String data) throws NoSuchAlgorithmException
+	    { 
+			MessageDigest messageDigest=MessageDigest.getInstance("MD5");
+
+	        messageDigest.update(data.getBytes());
+	        byte[] digest=messageDigest.digest();
+	        StringBuffer sb = new StringBuffer();
+	        for (byte b : digest) {
+	            sb.append(Integer.toHexString((int) (b & 0xff)));
+	        }
+	        return sb.toString();
+	    }
+		
+		
 }

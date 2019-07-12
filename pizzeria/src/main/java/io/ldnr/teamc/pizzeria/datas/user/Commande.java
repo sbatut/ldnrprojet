@@ -8,20 +8,22 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.persistence.Version;
 
 import org.hibernate.annotations.Type;
 
 
 @Entity
+@Table(name="commande")
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 public class Commande {
 	
 	@Id
 	private Integer numero ;
 	
-	 @Version
-	    @Type(type = "dbtimestamp")
+	@Version
+	@Type(type = "dbtimestamp")
 	private Date date;
 	
 	@ManyToOne
