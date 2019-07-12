@@ -1,28 +1,38 @@
 package io.ldnr.teamc.pizzeria.client;
 
+import java.security.NoSuchAlgorithmException;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.context.request.WebRequest;
+import org.springframework.web.servlet.ModelAndView;
 
 import io.ldnr.teamc.pizzeria.datas.ingredient.IngredientRepository;
 import io.ldnr.teamc.pizzeria.datas.pizza.Pizza;
 import io.ldnr.teamc.pizzeria.datas.pizza.PizzaRepository;
 import io.ldnr.teamc.pizzeria.datas.user.Commande;
 import io.ldnr.teamc.pizzeria.datas.user.CommandeRepository;
+import io.ldnr.teamc.pizzeria.datas.user.RoleEnum;
 import io.ldnr.teamc.pizzeria.datas.user.User;
 import io.ldnr.teamc.pizzeria.datas.user.UserRepository;
+import io.ldnr.teamc.pizzeria.usersecurity.UsersecurityController;
 
 @Controller
 @RequestMapping("client")
@@ -134,14 +144,36 @@ public class ClientCommandeController {
 	@PostMapping  (path="panier/confirm")
 	public String confirmerCommande(HttpServletRequest request){
 		
+		User u=null;
 		
-		User u = new User();
-		u.setNom("undefined");
-		u.setPrenom("undefined");
-		u.setLogin("undefined");
-		u.setRole("VISITEUR");
-		u.setPasswd("undefined");
-		u.setAdresse("undefined");
+		//recuperation user en session
+		if (request.getSession().getAttribute("SESSION_USER") !=null)
+		{
+			u = (User)request.getSession().getAttribute("SESSION_USER");			
+		}
+		else
+		{
+		
+			if (request.getSession().getAttribute("SESSION_ADMIN") !=null)
+			{
+				u = (User)request.getSession().getAttribute("SESSION_ADMIN");
+			}
+		}
+
+		if (u==null)
+		{
+			//user undefined à implementer
+			u = new User();
+			u.setNom("undefined");
+			u.setPrenom("undefined");
+			u.setLogin("undefined");
+			u.setRole("VISITEUR");
+			u.setPasswd("undefined");
+			u.setAdresse("undefined");
+			
+		}
+		
+		
 		repositoryUser.save(u);
 		
 
@@ -156,10 +188,12 @@ public class ClientCommandeController {
 		
 		repositoryCommande.save(cmd);
 		
-		request.getSession().invalidate();
+		request.getSession().removeAttribute("panier");
 		
 	    return "client/confirm";
 	}
+
+
 }
 
 
