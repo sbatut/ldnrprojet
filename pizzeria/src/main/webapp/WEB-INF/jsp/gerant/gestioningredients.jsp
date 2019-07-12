@@ -14,7 +14,7 @@
         <h1>Gestion des ingredients</h1>
         
         <div class="ajout">
-          <form method="post" action="ingredients/add" >
+          <form method="post" action="/gerant/ingredients/add" >
 		   <input type="hidden" name="action" value="creer">
 		   <label>Nom<input type="text" name="nom"> </label>
 		   <label>Prix<input type="text" name="prix"></label>
