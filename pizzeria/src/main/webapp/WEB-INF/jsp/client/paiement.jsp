@@ -6,9 +6,22 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
+		<c:url value="/css/main.css" var="jstlCss" />
+		<link href="${jstlCss}" rel="stylesheet" />
 		<title>Paiement de votre commande</title>
 	</head>
 	<body>
+	
+	<div id="framecontent">
+	<div class="innertube">
+	
+	<jsp:include page="/WEB-INF/jsp/client/menuClient.jsp"></jsp:include>
+	
+	</div>
+	</div>
+	
+	<div id="maincontent">
+	<div class="innertube">
 	
 	<p> Vous aves commandé <b>${nbPizza} pizzas</b> pour un montant total de ${montant}</b></p>
 	<p> <b> Ci-dessous choisissez votre moyen de paiement</b></p>
@@ -32,6 +45,6 @@
 		</fieldset>
 		</form>
 		
-
+     </div></div>
 	</body>
 </html>

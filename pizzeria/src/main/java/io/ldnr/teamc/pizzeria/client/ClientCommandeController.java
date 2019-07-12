@@ -90,6 +90,7 @@ public class ClientCommandeController {
 		Panier panier=(Panier) request.getSession().getAttribute("panier");
 		
 		pModel.addAttribute("listepizzas",panier.getAll());
+		pModel.addAttribute("nbPizza", panier.getAll().size());
 		pModel.addAttribute("montant", panier.getMontant());
 		 return "client/afficherPanier";
 	}

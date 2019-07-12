@@ -6,13 +6,23 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<c:url value="/css/main.css" var="jstlCss" />
+<link href="${jstlCss}" rel="stylesheet" />
 <title>Confirmation du paiement</title>
 </head>
 <body>
+	<div id="framecontent">
+	<div class="innertube">
+	
+	<jsp:include page="/WEB-INF/jsp/client/menuClient.jsp"></jsp:include>
+	
+	</div>
+	</div>
+	
+	<div id="maincontent">
+	<div class="innertube">
      <p><b>vous aves payé! votre session est fermée</b></p>
      
-     <<c:url value="/client/" var="url">
-            </c:url>
-            <a href="${url}">Accueil</a>
+    </div></div>
 </body>
 </html>

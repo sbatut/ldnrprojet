@@ -6,9 +6,25 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
+		<c:url value="/css/main.css" var="jstlCss" />
+		<link href="${jstlCss}" rel="stylesheet" />
 		<title>Affichage du panier</title>
 	</head>
 	<body>
+	
+	<div id="framecontent">
+	<div class="innertube">
+	
+	<jsp:include page="/WEB-INF/jsp/client/menuClient.jsp"></jsp:include>
+	
+	</div>
+	</div>
+	
+	<div id="maincontent">
+	<div class="innertube">
+	
+	<p> Vous avez sélectionné ${nbPizza} d'un montant total ${montant} </p>
+	
 	<form method="post" action="/client/panier/del" >
 		<fieldset>
 				<legend><h3>Les pizzas que vous avez selectionnées</h3></legend>
@@ -45,5 +61,6 @@
 
 		</fieldset>
 		</form>
+		</div></div>
 	</body>
 </html>

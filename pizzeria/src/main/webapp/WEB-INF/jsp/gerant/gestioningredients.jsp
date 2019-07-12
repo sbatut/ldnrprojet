@@ -15,7 +15,7 @@
 <div id="framecontent">
 <div class="innertube">
 
-<jsp:include page="/WEB-INF/jsp/gerant/menuNavigation.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/jsp/gerant/menuGerant.jsp"></jsp:include>
 
 </div>
 </div>

@@ -7,8 +7,22 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Ajout de pizza dans le panier</title>
+		<c:url value="/css/main.css" var="jstlCss" />
+		<link href="${jstlCss}" rel="stylesheet" />
 	</head>
 	<body>
+	
+    <div id="framecontent">
+	<div class="innertube">
+	
+	<jsp:include page="/WEB-INF/jsp/client/menuClient.jsp"></jsp:include>
+	
+	</div>
+	</div>
+	
+	<div id="maincontent">
+	<div class="innertube">
+	
 	<form method="post" action="/client/panier/add" >
 		<fieldset>
 				<legend>Les pizzas</legend>
@@ -45,6 +59,6 @@
             <a href="${url}">Afficher votre panier</a>
 
 		</fieldset>
-
+		</div> </div>
 	</body>
 </html>
