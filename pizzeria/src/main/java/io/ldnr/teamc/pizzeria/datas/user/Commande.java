@@ -1,4 +1,6 @@
+
 package io.ldnr.teamc.pizzeria.datas.user;
+
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -31,6 +33,7 @@ import io.ldnr.teamc.pizzeria.datas.pizza.Pizza;
 
 @Entity
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+
 @Table(name="commande")
 public class Commande {
 	
@@ -38,12 +41,22 @@ public class Commande {
 	@GeneratedValue (strategy = GenerationType.IDENTITY) @Column (name = "numero", unique = true, nullable = false) 
 	private Integer numero ;
 	
-    @Temporal(TemporalType.TIMESTAMP)
-	private Date date;
+
+
+	 @Version
+    //@Type(type = "dbtimestamp")
+	//private Date date;
+	 @Temporal(TemporalType.TIMESTAMP)
+    private Date date;
+
+
 	
 	@ManyToOne
 	@JoinColumn(name="user_id")
 	private User user_id;
+	
+	// Ajout du status de la commande (dernière colonne en base)
+	private String status;
 
 
 	public Integer getNumero() {
@@ -68,6 +81,14 @@ public class Commande {
 
 	public void setUser_id(User user_id) {
 		this.user_id = user_id;
+	}
+	
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 	public Commande() {
@@ -95,3 +116,4 @@ public class Commande {
 		 
 	 }
 }
+

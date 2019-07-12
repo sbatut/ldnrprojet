@@ -5,12 +5,15 @@ import java.util.Collection;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 
 
@@ -30,7 +33,7 @@ public class User {
 	    @Column(name = "prenom", nullable = true)
 	    private String prenom;
 	    
-	  /*  @NotNull
+	 @NotNull
 	    @Column(name = "adresse", nullable = true)
 	    private String adresse;
 	    
@@ -42,35 +45,59 @@ public class User {
 	    @Column(name = "passwd", nullable = false, unique = true)
 	    private String passwd;
 	    
-	    @Column(name = "role", nullable = false)
-	    private String role;*/
+
+
+
+	    @Transient
+	    private String cpasswd;
+	    
+	    @Column(name = "role", columnDefinition = "default 'VISITEUR")
+	    private String role;
+	    
+	    
+	   /* @Column(name = "role", nullable = false)
+	    @Enumerated(Type.STRING)
+	    private Collection<RoleEnum> roles;
+	    */
 
 	    
 	    @OneToMany(mappedBy="user_id", fetch = FetchType.LAZY)
 	    private Collection<Commande> commandes;
-
+	    
+	    
+	    /*@ElementCollection(targetClass = RoleEnum.class, fetch = FetchType.EAGER)
+	    @Cascade(value = CascadeType.REMOVE)
+	    @JoinTable(indexes = {@Index(name = "INDEX_USER_ROLE", columnList = "id")},
+	            name = "roles",
+	            joinColumns = @JoinColumn(name = "id")
+	    )*/
 	    
 	    public User() {
 	    	super();
+	   
 	        this.nom = "";
 	        this.prenom = "";
-
+	        //this.roles = Collections.singletonList(RoleEnum.VISITEUR);
 
 	    }
 	    
-	    public User(String nom, String prenom, String adresse, String login, String passwd, Collection<RoleEnum>roles ) {
+	    public User(String nom, String prenom, String email, String adresse, String login, String passwd, Collection<RoleEnum>roles ) {
 	    	super();
 	        this.nom = nom;
 	        this.prenom = prenom;
-	       /* this.adresse= adresse;
+	        this.adresse= adresse;
 	        this.login=login;
-	        this.passwd = passwd;	*/        
+
+	        this.passwd = passwd;	        
+	       // this.roles = roles;
+
 	    }
+	    
 	    public void setNom(String nom) {
 			this.nom = nom;
 		}
 
-	/*	public Integer getId() {
+		public Integer getId() {
 			return id;
 		}
 
@@ -82,10 +109,7 @@ public class User {
 			return nom;
 		}
 
-		public void setNom(String nom) {
-			this.nom = nom;
-		}
-
+		
 		public String getPrenom() {
 			return prenom;
 		}
@@ -117,7 +141,30 @@ public class User {
 		public void setPasswd(String passwd) {
 			this.passwd = passwd;
 		}
+		
+		/*public Collection<RoleEnum> getRoles() {
+			return roles;
+		}
 
+		public void setRoles(Collection<RoleEnum> roles) {
+			this.roles = roles;
+		}*/
+
+		public String getCpasswd() {
+			return cpasswd;
+		}
+
+		public void setCpasswd(String cpasswd) {
+			this.cpasswd = cpasswd;
+		}
+
+		public String getRole() {
+			return role;
+		}
+
+		public void setRole(String role) {
+			this.role = role;
+		}
 
 		public Collection<Commande> getCommandes() {
 			return commandes;
@@ -125,7 +172,20 @@ public class User {
 
 		public void setCommandes(Collection<Commande> commandes) {
 			this.commandes = commandes;
-		}*/
+		}
 
+	    
+	    /*@Override
+	    public Collection<? extends GrantedAuthority> getAuthorities() {
+	        String roles = StringUtils.collectionToCommaDelimitedString(getRoles().stream()
+	                .map(Enum::name).collect(Collectors.toList()));
+	        return AuthorityUtils.commaSeparatedStringToAuthorityList(roles);
+	    }
+
+	    public void setPassword(String password) {
+	        if (!password.isEmpty()) {
+	            this.cpasswd = BCryptManagerUtil.passwordencoder().encode(password);
+	        }
+	    }  */ 
 
 }

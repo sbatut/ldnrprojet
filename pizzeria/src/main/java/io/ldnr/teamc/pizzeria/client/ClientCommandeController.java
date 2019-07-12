@@ -133,7 +133,11 @@ public class ClientCommandeController {
 		
 		User u = new User();
 		u.setNom("toto");
-		
+		u.setPrenom("tt");
+		u.setLogin("ll");
+		u.setRole("gg");
+		u.setPasswd("fyf");
+		u.setAdresse("gygg");
 		repositoryUser.save(u);
 		
 
@@ -141,6 +145,7 @@ public class ClientCommandeController {
 
 		
 		Commande cmd = new Commande();
+		cmd.setStatus("En cours");
 		cmd.setUser_id(u);
 
 		cmd.setPizzas(panier.getAll());

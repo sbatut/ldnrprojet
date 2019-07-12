@@ -32,7 +32,7 @@ body {
   border-radius: 4px;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
-  margin: 100px auto 10px;
+  margin: 10px auto 10px;
   overflow: hidden;
 }
 .form-toggle {
@@ -167,7 +167,7 @@ body {
   text-decoration: none;
 }
 .form-panel {
-  padding: 60px calc(5% + 60px) 60px 60px;
+  padding: 15px calc(5% + 60px) 40px 60px;
   box-sizing: border-box;
 }
 .form-panel.one:before {

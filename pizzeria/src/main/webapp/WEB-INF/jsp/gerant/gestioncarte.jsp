@@ -7,8 +7,22 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Gestion de la carte</title>
+<c:url value="/css/main.css" var="jstlCss" />
+<link href="${jstlCss}" rel="stylesheet" />
 	</head>
 	<body>
+	
+	
+<div id="framecontent">
+<div class="innertube">
+
+<jsp:include page="/WEB-INF/jsp/gerant/menuNavigation.jsp"></jsp:include>
+
+</div>
+</div>
+
+<div id="maincontent">
+<div class="innertube">
 		<fieldset>
 				<legend>La carte</legend>
 				<!-- Itérations des éléments de la carte -->
@@ -22,7 +36,7 @@
 							</c:forEach>
 						</ul>
 						<b><c:out value="${pizza.prix}"/>€</b>
-						<c:url value="carte/pizza/del" var="url">
+						<c:url value="/gerant/carte/pizza/del" var="url">
                            <c:param name="id" value="${pizza.id}"/>
                         </c:url>
                         <a href="${url}">Supprimer</a>
@@ -31,9 +45,11 @@
 		</fieldset>
 		<fieldset>
 			<!-- Ajout d'une pizza -->
-			<c:url value="carte/pizza/add" var="url">
+			<c:url value="/gerant/carte/pizza/add" var="url">
             </c:url>
             <a href="${url}">Ajouter Pizza</a>
 		</fieldset>
+		
+		</div></div>
 	</body>
 </html>

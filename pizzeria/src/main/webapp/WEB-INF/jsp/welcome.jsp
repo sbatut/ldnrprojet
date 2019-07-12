@@ -11,9 +11,32 @@
 
 <title>Bienvenue sur le site MIAM-MIAM</title>
 </head>
+
 <body>
+
+
+
+<div id="framecontent">
+<div class="innertube">
+
+<jsp:include page="/WEB-INF/jsp/gerant/menuNavigation.jsp"></jsp:include>
+
+</div>
+</div>
+
+
+<div id="maincontent">
+<div class="innertube">
+
 <h1>Bienvenue sur le site MIAM-MIAM</h1>
-<h2>Site de commande en ligne de pizza</h2>
+
+<p style="text-align: center">Les menus du jour</p>
+
+</div>
+</div>
+
+
 
 </body>
+
 </html>
