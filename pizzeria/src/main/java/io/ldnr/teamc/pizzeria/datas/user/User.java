@@ -27,11 +27,11 @@ public class User {
 	    private String nom;
 	    
 	    @NotNull
-	    @Column(name = "prenom", nullable = false)
+	    @Column(name = "prenom", nullable = true)
 	    private String prenom;
 	    
-	    @NotNull
-	    @Column(name = "adresse", nullable = false)
+	  /*  @NotNull
+	    @Column(name = "adresse", nullable = true)
 	    private String adresse;
 	    
 	    @NotNull
@@ -43,7 +43,7 @@ public class User {
 	    private String passwd;
 	    
 	    @Column(name = "role", nullable = false)
-	    private String role;
+	    private String role;*/
 
 	    
 	    @OneToMany(mappedBy="user_id", fetch = FetchType.LAZY)
@@ -62,12 +62,15 @@ public class User {
 	    	super();
 	        this.nom = nom;
 	        this.prenom = prenom;
-	        this.adresse= adresse;
+	       /* this.adresse= adresse;
 	        this.login=login;
-	        this.passwd = passwd;	        
+	        this.passwd = passwd;	*/        
 	    }
+	    public void setNom(String nom) {
+			this.nom = nom;
+		}
 
-		public Integer getId() {
+	/*	public Integer getId() {
 			return id;
 		}
 
@@ -122,7 +125,7 @@ public class User {
 
 		public void setCommandes(Collection<Commande> commandes) {
 			this.commandes = commandes;
-		}
+		}*/
 
 
 }
