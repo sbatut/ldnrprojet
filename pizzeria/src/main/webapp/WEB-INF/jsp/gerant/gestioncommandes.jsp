@@ -11,22 +11,60 @@
 	</head>
 	<body>
 		<fieldset>
-				<legend>Commandes effectuées</legend>
+				<legend>Commandes En Cours</legend>
 				<table>
 					<th>Id commande</th>
 					<th>Date et heure</th>
 					<th>Id client</th>
 					<th>Nom</th>
 					<th>Prénom</th>
+					<th>Status</th>
 					<!-- Itérations des éléments de la liste des commandes -->
 					<c:forEach items="${listecommandes}" var="commande">
+						<c:if test = "${commande.status.equals(\"En cours\")}">
 							<tr>
 								<td><c:out value="${commande.numero}"/></td>
 								<td><c:out value="${commande.date}"/></td>
 								<td><c:out value="${commande.user_id.id}"/></td>
 								<td><c:out value="${commande.user_id.nom}"/></td>
 								<td><c:out value="${commande.user_id.prenom}"/></td>
-							</tr>	
+								<td><c:out value="${commande.status}"/></td>
+								<td>
+		                          <c:url value="/gerant/commandes/update/${commande.numero}" var="url">
+		                          </c:url>
+		                          <a href="${url}">Modifier</a>
+                        		</td>               
+							</tr>
+						</c:if>	
+					</c:forEach>
+				</table>
+		</fieldset>
+		<fieldset>
+			<legend>Commandes Terminées</legend>
+				<table>
+					<th>Id commande</th>
+					<th>Date et heure</th>
+					<th>Id client</th>
+					<th>Nom</th>
+					<th>Prénom</th>
+					<th>Status</th>
+					<!-- Itérations des éléments de la liste des commandes -->
+					<c:forEach items="${listecommandes}" var="commande">
+						<c:if test = "${commande.status.equals(\"Terminee\")}">
+							<tr>
+								<td><c:out value="${commande.numero}"/></td>
+								<td><c:out value="${commande.date}"/></td>
+								<td><c:out value="${commande.user_id.id}"/></td>
+								<td><c:out value="${commande.user_id.nom}"/></td>
+								<td><c:out value="${commande.user_id.prenom}"/></td>
+								<td><c:out value="${commande.status}"/></td>
+								<td>
+		                          <c:url value="/gerant/commandes/update/${commande.numero}" var="url">
+		                          </c:url>
+		                          <a href="${url}">Modifier</a>
+                        		</td>               
+							</tr>
+						</c:if>	
 					</c:forEach>
 				</table>
 		</fieldset>

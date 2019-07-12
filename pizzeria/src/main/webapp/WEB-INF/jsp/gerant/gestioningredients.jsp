@@ -41,13 +41,13 @@
                         <td><c:out value="${ingredient.nom}"/></td>
                         <td><c:out value="${ingredient.prix}"/></td>
                         <td>
-                          <c:url value="ingredients/del" var="url">
+                          <c:url value="/gerant/ingredients/del" var="url">
                            <c:param name="id" value="${ingredient.id}"/>
                           </c:url>
                           <a href="${url}">Supprimer</a>
                         </td>
                         <td>
-                          <c:url value="ingredients/update/${ingredient.id}" var="url">
+                          <c:url value="/gerant/ingredients/update/${ingredient.id}" var="url">
                           </c:url>
                           <a href="${url}">Modifier</a>
                         </td>                        

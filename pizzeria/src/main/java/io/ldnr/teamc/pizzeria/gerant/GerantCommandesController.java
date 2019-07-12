@@ -12,8 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import io.ldnr.teamc.pizzeria.datas.ingredient.Ingredient;
-import io.ldnr.teamc.pizzeria.datas.ingredient.IngredientRepository;
+import io.ldnr.teamc.pizzeria.datas.user.Commande;
 import io.ldnr.teamc.pizzeria.datas.user.CommandeRepository;
 
 
@@ -31,5 +30,44 @@ public class GerantCommandesController {
 	  pModel.addAttribute("listecommandes",repoCommande.findAll());
 	  return "gerant/gestioncommandes";
 	 }
-	 	
+	 
+	 @GetMapping(path= "commandes/update/{numero}")
+	 public String updFormIngredient(ModelMap pModel,@PathVariable("numero") int numero) {
+		 
+
+			 Optional<Commande> optCommande = repoCommande.findById(numero);
+			 
+			 if (optCommande.isPresent())
+			 {
+				 Commande commande = optCommande.get();
+				 pModel.addAttribute("commande", commande);
+				 
+				 return "gerant/updformcommande";
+			 }
+		 
+		 return "redirect:/gerant/commandes";
+	 }
+	 
+	 @PostMapping(path= "commandes/update")
+	 public String updCommande(ModelMap pModel,@RequestParam Map<String,String> allParams) {
+		 
+		 if (allParams.containsKey("action") && allParams.get("action").equals("update"))
+		 {
+		 
+			 int idCommande = Integer.parseInt(allParams.get("numero"));
+			 Optional<Commande> optCommande = repoCommande.findById(idCommande);
+			 
+			 if (optCommande.isPresent())
+			 {
+				 Commande commande = optCommande.get();
+				 String status =allParams.get("status");
+				 
+				 commande.setStatus(status);
+
+				 repoCommande.save(commande);
+			 }
+
+		 }
+		 return "redirect:/gerant/commandes";
+	 }
 }
