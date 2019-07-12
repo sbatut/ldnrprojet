@@ -125,7 +125,7 @@ public class UserController {
 			return "/connexionUsers/connexionUserOk";
 		} else if (roleIn.equals("ADMINISTRATOR")) {
 			wRequest.setAttribute("SESSION_ADMIN", u, WebRequest.SCOPE_SESSION);
-			return "/connexionUsers/connexionAdminOk";
+			return "redirect:/gerant/carte";
 		} else {
 			return "/users/userErrorLogin";
 		}

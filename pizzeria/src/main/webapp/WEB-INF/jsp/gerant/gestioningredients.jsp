@@ -11,7 +11,9 @@
     </head>
     <body>
     
-    	
+  		<c:if test = "${!SESSION_ADMIN.role.equals(\"ADMINISTRATOR\")}">
+			<jsp:forward page="/"/>
+		</c:if>
 <div id="framecontent">
 <div class="innertube">
 
