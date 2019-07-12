@@ -69,7 +69,7 @@ public class GerantIngredientsController {
 	 }
 	 
 	 @GetMapping(path= "ingredients/update/{id}")
-	 public String updFormIngredient(ModelMap pModel,@PathVariable("id") int id) {
+	 public String addFromIngredient(ModelMap pModel,@PathVariable("id") int id) {
 		 
 
 			 Optional<Ingredient> optIngredient = repoIngredient.findById(id);
@@ -79,7 +79,7 @@ public class GerantIngredientsController {
 				 Ingredient ingredient = optIngredient.get();
 				 pModel.addAttribute("ingredient", ingredient);
 				 
-				 return "gerant/updformingredient";
+				 return "gerant/gestionupdingredient";
 			 }
 		 
 		 return "redirect:/gerant/ingredients";

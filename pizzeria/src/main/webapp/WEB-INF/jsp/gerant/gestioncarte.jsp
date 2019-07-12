@@ -36,7 +36,7 @@
 							</c:forEach>
 						</ul>
 						<b><c:out value="${pizza.prix}"/>€</b>
-						<c:url value="carte/pizza/del" var="url">
+						<c:url value="/gerant/carte/pizza/del" var="url">
                            <c:param name="id" value="${pizza.id}"/>
                         </c:url>
                         <a href="${url}">Supprimer</a>
@@ -45,7 +45,7 @@
 		</fieldset>
 		<fieldset>
 			<!-- Ajout d'une pizza -->
-			<c:url value="carte/pizza/add" var="url">
+			<c:url value="/gerant/carte/pizza/add" var="url">
             </c:url>
             <a href="${url}">Ajouter Pizza</a>
 		</fieldset>
