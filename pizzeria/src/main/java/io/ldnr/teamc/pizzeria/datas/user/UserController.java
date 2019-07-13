@@ -113,10 +113,6 @@ public class UserController {
 		String roleIn = u.getRole();
 		String loginIn = u.getLogin();
 		
-		if(loginPost.equals(loginIn)) {
-			return "users/userErrorLogin";
-		}
-		
 		
 
 		// UsersecurityController us = new UsersecurityController();
