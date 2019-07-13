@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.context.request.WebRequest;
 
-import io.ldnr.teamc.pizzeria.datas.user.Commande;
-import io.ldnr.teamc.pizzeria.datas.user.CommandeRepository;
+import io.ldnr.teamc.pizzeria.datas.commande.Commande;
+import io.ldnr.teamc.pizzeria.datas.commande.CommandeRepository;
 
 
 

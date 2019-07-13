@@ -1,5 +1,6 @@
-package io.ldnr.teamc.pizzeria.datas.user;
+package io.ldnr.teamc.pizzeria.user;
 
+import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Map;
 
@@ -19,7 +20,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.ModelAndView;
 
-import io.ldnr.teamc.pizzeria.usersecurity.UsersecurityController;
+import io.ldnr.teamc.pizzeria.datas.user.User;
+import io.ldnr.teamc.pizzeria.datas.user.UserRepository;
+
 
 @Controller
 //@SessionAttributes("SESSION_USER");
@@ -64,7 +67,7 @@ public class UserController {
 		}
 
 		String secPwd = user.getPasswd();
-		String securityPwd = UsersecurityController.getMD5Pwd(secPwd);
+		String securityPwd = getMD5Pwd(secPwd);
 		user.setPasswd(securityPwd);
 
 		User user1 = userRepo.save(user);
@@ -113,7 +116,7 @@ public class UserController {
 		String loginIn = u.getLogin();
 
 		// UsersecurityController us = new UsersecurityController();
-		String securityPwd = UsersecurityController.getMD5Pwd(pwdPost);
+		String securityPwd = getMD5Pwd(pwdPost);
 
 		// comparer les 2 mots de passe en BD et celui saisi par user
 		if (!securityPwd.equals(pwdIn) || pwdIn.isEmpty()) {
@@ -157,6 +160,22 @@ public class UserController {
 	wRequest.removeAttribute("SESSION_ADMIN", WebRequest.SCOPE_SESSION);
 	return "/connexionUsers/connexionLogout";
 	}
+	
+	/*
+	 * Cryptage mot de passe
+	 */
+	public static String getMD5Pwd(String data) throws NoSuchAlgorithmException
+    { 
+		MessageDigest messageDigest=MessageDigest.getInstance("MD5");
+
+        messageDigest.update(data.getBytes());
+        byte[] digest=messageDigest.digest();
+        StringBuffer sb = new StringBuffer();
+        for (byte b : digest) {
+            sb.append(Integer.toHexString((int) (b & 0xff)));
+        }
+        return sb.toString();
+    }
 
 	
 }

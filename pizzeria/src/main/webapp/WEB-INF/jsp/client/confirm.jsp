@@ -21,7 +21,7 @@
 	
 	<div id="maincontent">
 	<div class="innertube">
-     <p><b>vous aves payé! votre session est fermée</b></p>
+     <p><b>votre commande est payée!</b></p>
      
     </div></div>
 </body>

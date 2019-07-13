@@ -1,11 +1,9 @@
 
-package io.ldnr.teamc.pizzeria.datas.user;
+package io.ldnr.teamc.pizzeria.datas.commande;
 
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -25,10 +23,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Version;
 
-import org.hibernate.annotations.Type;
-
-import io.ldnr.teamc.pizzeria.datas.ingredient.Ingredient;
 import io.ldnr.teamc.pizzeria.datas.pizza.Pizza;
+import io.ldnr.teamc.pizzeria.datas.user.User;
 
 
 @Entity
