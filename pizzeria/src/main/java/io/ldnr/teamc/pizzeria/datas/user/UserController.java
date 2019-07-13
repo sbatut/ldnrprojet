@@ -112,12 +112,6 @@ public class UserController {
 		String pwdIn = u.getPasswd();
 		String roleIn = u.getRole();
 		String loginIn = u.getLogin();
-		
-		if(loginPost.equals(loginIn)) {
-			return "users/userErrorLogin";
-		}
-		
-		
 
 		// UsersecurityController us = new UsersecurityController();
 		String securityPwd = UsersecurityController.getMD5Pwd(pwdPost);

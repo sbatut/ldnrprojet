@@ -33,7 +33,7 @@ public class User {
 	    @Column(name = "prenom", nullable = true)
 	    private String prenom;
 	    
-	 @NotNull
+	    @NotNull
 	    @Column(name = "adresse", nullable = true)
 	    private String adresse;
 	    
