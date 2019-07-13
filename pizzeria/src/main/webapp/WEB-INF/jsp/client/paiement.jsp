@@ -24,6 +24,9 @@
 	<div class="innertube">
 	
 	<p> Vous aves commandé <b>${nbPizza} pizzas</b> pour un montant total de ${montant}</b></p>
+	<c:if test = "${SESSION_USER.role.equals(\"USER\")}">
+		<p> Votre fidélité vous accorde une réduction de 10%, votre montant final est de ${montantreduit} </p>
+	</c:if>
 	<p> <b> Ci-dessous choisissez votre moyen de paiement</b></p>
 	
 	

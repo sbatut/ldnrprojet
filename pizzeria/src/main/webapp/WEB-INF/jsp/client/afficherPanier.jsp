@@ -23,7 +23,11 @@
 	<div id="maincontent">
 	<div class="innertube">
 	
+
 	<p> Vous avez sélectionné ${nbPizza} d'un montant total ${montant} </p>
+	<c:if test = "${SESSION_USER.role.equals(\"USER\")}">
+	<p> Votre fidélité vous accorde une réduction de 10%, votre montant final est de ${montantreduit} </p>
+	</c:if>
 	
 	<form method="post" action="/client/panier/del" >
 		<fieldset>

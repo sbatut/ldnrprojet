@@ -32,14 +32,18 @@
 					<th>Nom</th>
 					<th>Prénom</th>
 					<th>Adresse</th>
+					<th>Role</th>
 					<!-- Itérations des éléments de la liste des commandes -->
 					<c:forEach items="${listeusers}" var="user">
+						<c:if test = "${!user.role.equals(\"ADMINISTRATOR\")}">
 							<tr>
 								<td><c:out value="${user.id}"/></td>
 								<td><c:out value="${user.nom}"/></td>
 								<td><c:out value="${user.prenom}"/></td>
 								<td><c:out value="${user.adresse}"/></td>
+								<td><c:out value="${user.role}"/></td>
 							</tr>	
+						</c:if>
 					</c:forEach>
 				</table>
 		</fieldset>
