@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -121,9 +120,6 @@ public class UserController {
 			return "users/userErrorLogin";
 		}
 
-		if (loginPost.isEmpty()) {
-			// do something
-		}
 
 		// data pour affichage en Front
 		model.addAttribute("pwdIn", u.getPasswd());
@@ -163,88 +159,4 @@ public class UserController {
 	}
 
 	
-	
-
-	
-	
-
-	/*
-	 * 
-	 * //Model m =model.addAttribute("login",user);
-	 * 
-	 * User u = new User();
-	 * 
-	 * //User u = userRepo.findByLogin("login");
-	 * 
-	 * 
-	 * 
-	 * if (result.hasErrors()) { return "users/userErrorLogin"; }
-	 * 
-	 * 
-	 * String loginUser = u.getLogin(); String pwdUser = u.getPasswd(); String
-	 * roleUser = u.getRole(); String nom = u.getLogin();
-	 * 
-	 * model.addAttribute("login", user.getLogin()); model.addAttribute("passwd",
-	 * user.getPasswd());
-	 * 
-	 * if(pwdUser.isEmpty()) { // do something } if(loginUser.isEmpty()) { // do
-	 * something }
-	 * 
-	 * 
-	 * /* //User infosUser = userRepo.findByLogin(loginUser);
-	 * 
-	 * if("ok") // session USer connecté String userSession = "ok";
-	 * 
-	 * setAttribute("paramUser",infosUser);
-	 * 
-	 * Object info = getAttribute("paramUser"); // retourne objet
-	 *
-	 * /
-	 * 
-	 * if (roleUser.equals("USER")) { return
-	 * "redirect:/connexionUsers/connexionUserOk"; } else if
-	 * (roleUser.equals("ADMINISTRATOR")) { return
-	 * "redirect:/connexionUsers/connexionAdminOk"; } else { //return
-	 * "redirect:/users/userLogin"; //return "/users/userSuccessInscription"; }
-	 * 
-	 * return "/users/userSuccessInscription";
-	 * 
-	 * }
-	 */
-
-	/*
-	 * // User
-	 * 
-	 * @GetMapping("/connexionUserOk") //public String inscription
-	 * (HttpServletRequest request, ModelMap modelMap) { public String loginx2
-	 * (@RequestParam(required=false, defaultValue="userConnecte") String userlogin,
-	 * ModelMap modelMap) { // testé session USer connecté
-	 * 
-	 * return "redirect:/pagesUser/"; }
-	 * 
-	 * 
-	 * // Admin
-	 * 
-	 * @GetMapping("/connexionAdminOk") //public String inscription
-	 * (HttpServletRequest request, ModelMap modelMap) { public String loginx
-	 * (@RequestParam(required=false, defaultValue="toto") String userlogin,
-	 * ModelMap modelMap) { // testé session USer connecté
-	 * 
-	 * return "redirect:/pagesUser/"; }
-	 */
-
-	/*
-	 * @GetMapping(path = "users/userSuccess") //public String inscription
-	 * (@RequestParam(required=false, defaultValue="toto") String name, String
-	 * prenom, ModelMap modelMap) { public String formInfos(ModelMap
-	 * pModel,@RequestParam Map<String,String> userInfos) {
-	 * 
-	 * userInfos.put("nom", userInfos.get("userlastname")); userInfos.put("prenom",
-	 * userInfos.get("userfirstname")); userInfos.put("email",
-	 * userInfos.get("email")); userInfos.put("login", userInfos.get("username"));
-	 * userInfos.put("pwd", userInfos.get("password")); userInfos.put("pwdConfirm",
-	 * userInfos.get("cpassword"));
-	 * 
-	 * return "/users/userSuccessInscription"; }
-	 */
 }
