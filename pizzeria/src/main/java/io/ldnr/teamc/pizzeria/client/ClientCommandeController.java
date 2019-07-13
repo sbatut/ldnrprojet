@@ -104,6 +104,10 @@ public class ClientCommandeController {
 		
 		pModel.addAttribute("listepizzas",panier.getAll());
 		pModel.addAttribute("nbPizza", panier.getAll().size());
+		if (request.getSession().getAttribute("SESSION_USER") !=null)
+		{
+			pModel.addAttribute("montantreduit", panier.getMontantReduction());	
+		}
 		pModel.addAttribute("montant", panier.getMontant());
 		 return "client/afficherPanier";
 	}
@@ -135,6 +139,11 @@ public class ClientCommandeController {
 		Panier panier = (Panier) request.getSession().getAttribute("panier");
 		pModel.addAttribute("montant", panier.getMontant());
 		pModel.addAttribute("nbPizza", panier.getAll().size());
+		if (request.getSession().getAttribute("SESSION_USER") !=null)
+		{
+			pModel.addAttribute("montantreduit", panier.getMontantReduction());	
+		}		
+		
 		return "client/paiement";
 		
 		
@@ -162,15 +171,7 @@ public class ClientCommandeController {
 
 		if (u==null)
 		{
-			//user undefined à implementer
-			u = new User();
-			u.setNom("undefined");
-			u.setPrenom("undefined");
-			u.setLogin("undefined");
-			u.setRole("VISITEUR");
-			u.setPasswd("undefined");
-			u.setAdresse("undefined");
-			
+			return "redirect:/client/infoClient";
 		}
 		
 		
@@ -191,6 +192,40 @@ public class ClientCommandeController {
 		request.getSession().removeAttribute("panier");
 		
 	    return "client/confirm";
+	}
+	
+	@RequestMapping(value = "/infoClient", method = RequestMethod.GET)
+	public ModelAndView showFormInscription() {
+
+		return new ModelAndView("client/infoClient", "addformAction", new User());
+	}
+
+	
+	@PostMapping("/addformAction")
+	public String submitFormInscription(@ModelAttribute("addformAction") User user, 
+			Model model,HttpServletRequest request) throws NoSuchAlgorithmException {
+
+		user.setLogin("undefined");
+		user.setPasswd("undefined");
+		repositoryUser.save(user);
+		
+		Panier panier = (Panier) request.getSession().getAttribute("panier");
+		
+		Commande cmd = new Commande();
+		cmd.setStatus("En cours");
+		cmd.setUser_id(user);
+
+		cmd.setPizzas(panier.getAll());
+		
+		repositoryCommande.save(cmd);
+		
+		request.getSession().removeAttribute("panier");
+		
+	    return "client/confirm";
+		
+
+
+
 	}
 
 

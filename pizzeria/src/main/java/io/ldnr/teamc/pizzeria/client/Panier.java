@@ -10,6 +10,7 @@ import io.ldnr.teamc.pizzeria.datas.pizza.Pizza;
 public class Panier {
 
 	private float montant=0f;
+	private float reduction=0.1f;
 	
 	private Set<Pizza> pizzas;
 	 
@@ -52,4 +53,12 @@ public class Panier {
 		return montant;
 		
 	}
+	
+	public float getMontantReduction() {
+		
+		return montant - (montant * reduction);
+		
+	}
+	
+	
 }

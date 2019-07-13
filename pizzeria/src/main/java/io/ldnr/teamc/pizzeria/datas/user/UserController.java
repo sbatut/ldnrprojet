@@ -112,8 +112,6 @@ public class UserController {
 		String pwdIn = u.getPasswd();
 		String roleIn = u.getRole();
 		String loginIn = u.getLogin();
-		
-		
 
 		// UsersecurityController us = new UsersecurityController();
 		String securityPwd = UsersecurityController.getMD5Pwd(pwdPost);
@@ -138,9 +136,11 @@ public class UserController {
 		// Dispaching en fonction de l'utilisateur connecté
 		if (roleIn.equals("USER")) {
 			wRequest.setAttribute("SESSION_USER", u, WebRequest.SCOPE_SESSION);
+			wRequest.removeAttribute("SESSION_ADMIN", WebRequest.SCOPE_SESSION);
 			return "redirect:/";
 		} else if (roleIn.equals("ADMINISTRATOR")) {
 			wRequest.setAttribute("SESSION_ADMIN", u, WebRequest.SCOPE_SESSION);
+			wRequest.removeAttribute("SESSION_USER", WebRequest.SCOPE_SESSION);
 			return "redirect:/gerant/carte";
 		} else {
 			return "/users/userErrorLogin";
