@@ -23,15 +23,15 @@
   <div class="form-panel one">
     
     <div class="form-header">
-	<h1>Log Deconnection </h1>
+	<h1>Vous êtes bien déconnecté</h1>
     </div>
     
     <div class="form-content">
 			   
-	<h2 class="errorform">Vous êtes bien déconnecté</h2>
+	<h2 class="errorform">Votre session est terminée.</h2>
 	
 				   
-			<p>Login: ${loginIn}</p>
+			<p style="text-align:center;"><a href="/">Revenir à l'accueil</a></p>
 
 
     </div>

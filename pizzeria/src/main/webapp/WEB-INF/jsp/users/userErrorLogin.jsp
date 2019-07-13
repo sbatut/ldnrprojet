@@ -13,6 +13,12 @@
 <title>Error login page</title>
 </head>
 <body>
+<div id="headerfixed">
+    <ul>
+    <li><a href="/">Accueil</a></li>
+    </ul>
+</div>
+
 <div class="container">
 
   
@@ -23,16 +29,14 @@
   <div class="form-panel one">
     
     <div class="form-header">
-	<h1>Oups !! Error De connexion</h1>
+	<h1>Oups !!! Erreur de connexion</h1>
     </div>
     
     <div class="form-content">
 			   
-			<p>Merci de recommencer</p>
+			<p style="text-align:center;">Merci de recommencer</p>
 
-		<p>Role: ${roleIn}</p>
-		<p>Login: ${loginIn}</p>
-		<p>Psd: ${pwdIn}</p>
+	<p style="text-align:center;"><a href="/login">Revenir en arrière</a></p>
     </div>
   </div>
   
