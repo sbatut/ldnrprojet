@@ -61,6 +61,11 @@ public class UserController {
 		}
 		
 		
+		//verifier si les 2 mots de passe saisis sont identiques
+		if (!paramLogin.get("passwd").equals(paramLogin.get("cpasswd"))) {
+			return "users/userErrorPwdDontMatch";
+		}
+		
 		
 		if (result.hasErrors()) {
 			return "users/userErrorInscription";
