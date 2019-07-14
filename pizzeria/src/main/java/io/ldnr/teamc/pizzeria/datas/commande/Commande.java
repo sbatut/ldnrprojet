@@ -92,6 +92,8 @@ public class Commande {
 		// TODO Auto-generated constructor stub
 	}
 
+
+
 	public Commande(Integer numero) {
 		super();
 		this.numero = numero;
@@ -107,9 +109,12 @@ public class Commande {
 	 
 	 public void setPizzas(Set<Pizza> pizzas){
 		 this.pizzas.addAll(pizzas);
-	
-	
-		 
 	 }
+		 
+		 
+	public Set<Pizza> getPizzas() {
+		return pizzas;
+	}
+
 }
 

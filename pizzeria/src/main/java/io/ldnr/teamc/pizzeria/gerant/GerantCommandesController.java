@@ -72,4 +72,21 @@ public class GerantCommandesController {
 		 }
 		 return "redirect:/gerant/commandes";
 	 }
+	 
+	 @GetMapping(path= "commandes/details/{numero}")
+	 public String detailscommande(ModelMap pModel,@PathVariable("numero") int numero) {
+		 
+
+			 Optional<Commande> optCommande = repoCommande.findById(numero);
+			 
+			 if (optCommande.isPresent())
+			 {
+				 Commande commande = optCommande.get();
+				 pModel.addAttribute("commande", commande);
+				 
+				 return "gerant/detailscommande";
+			 }
+		 
+		 return "redirect:/gerant/commandes";
+	 }
 }

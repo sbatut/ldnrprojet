@@ -61,6 +61,11 @@ public class Pizza {
 	{
 		this.compoIngredient.add(ingredient);
 	}
+	
+	public void Clear()
+	{
+		this.compoIngredient.clear();
+	}
 
 
 	 

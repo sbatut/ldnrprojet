@@ -130,7 +130,36 @@ public class ClientCommandeController {
 	@GetMapping(path="panier/paiement")
 	public String payerCommande(HttpServletRequest request,ModelMap pModel){
 		
+		User u=null;
+		
 		Panier panier = (Panier) request.getSession().getAttribute("panier");
+		
+		//recuperation user en session
+		if (request.getSession().getAttribute("SESSION_USER") !=null)
+		{
+			u = (User)request.getSession().getAttribute("SESSION_USER");			
+		}
+		else
+		{
+		
+			if (request.getSession().getAttribute("SESSION_ADMIN") !=null)
+			{
+				u = (User)request.getSession().getAttribute("SESSION_ADMIN");
+			}
+			
+		}
+
+		if (u==null && panier.getUser()==null)
+		{
+			return "redirect:/client/infoClient";
+		}
+		else if (u!=null)
+		{
+			panier.setUser(u);
+			request.getSession().setAttribute("panier",panier);
+		}
+		
+		
 		pModel.addAttribute("montant", panier.getMontant());
 		pModel.addAttribute("nbPizza", panier.getAll().size());
 		if (request.getSession().getAttribute("SESSION_USER") !=null)
@@ -146,38 +175,13 @@ public class ClientCommandeController {
 
 	@PostMapping  (path="panier/confirm")
 	public String confirmerCommande(HttpServletRequest request){
-		
-		User u=null;
-		
-		//recuperation user en session
-		if (request.getSession().getAttribute("SESSION_USER") !=null)
-		{
-			u = (User)request.getSession().getAttribute("SESSION_USER");			
-		}
-		else
-		{
-		
-			if (request.getSession().getAttribute("SESSION_ADMIN") !=null)
-			{
-				u = (User)request.getSession().getAttribute("SESSION_ADMIN");
-			}
-		}
-
-		if (u==null)
-		{
-			return "redirect:/client/infoClient";
-		}
-		
-		
-		repositoryUser.save(u);
-		
-
+	
 		Panier panier = (Panier) request.getSession().getAttribute("panier");
 
 		
 		Commande cmd = new Commande();
 		cmd.setStatus("En cours");
-		cmd.setUser_id(u);
+		cmd.setUser_id(panier.getUser());
 
 		cmd.setPizzas(panier.getAll());
 		
@@ -204,20 +208,11 @@ public class ClientCommandeController {
 		repositoryUser.save(user);
 		
 		Panier panier = (Panier) request.getSession().getAttribute("panier");
+		panier.setUser(user);
+		request.getSession().setAttribute("panier",panier);
 		
-		Commande cmd = new Commande();
-		cmd.setStatus("En cours");
-		cmd.setUser_id(user);
-
-		cmd.setPizzas(panier.getAll());
-		
-		repositoryCommande.save(cmd);
-		
-		request.getSession().removeAttribute("panier");
-		
-	    return "client/confirm";
-		
-
+	
+	    return "redirect:/client/panier/paiement";
 
 
 	}

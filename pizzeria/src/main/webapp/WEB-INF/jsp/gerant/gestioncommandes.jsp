@@ -49,7 +49,12 @@
 		                          <c:url value="/gerant/commandes/update/${commande.numero}" var="url">
 		                          </c:url>
 		                          <a href="${url}">Modifier</a>
-                        		</td>               
+                        		</td>
+								<td>
+		                          <c:url value="/gerant/commandes/details/${commande.numero}" var="url">
+		                          </c:url>
+		                          <a href="${url}">Détails</a>
+                        		</td>                         		               
 							</tr>
 						</c:if>	
 					</c:forEach>
@@ -78,7 +83,12 @@
 		                          <c:url value="/gerant/commandes/update/${commande.numero}" var="url">
 		                          </c:url>
 		                          <a href="${url}">Modifier</a>
-                        		</td>               
+                        		</td>
+								<td>
+		                          <c:url value="/gerant/commandes/details/${commande.numero}" var="url">
+		                          </c:url>
+		                          <a href="${url}">Détails</a>
+                        		</td>                            		              
 							</tr>
 						</c:if>	
 					</c:forEach>

@@ -44,6 +44,9 @@
                            <c:param name="id" value="${pizza.id}"/>
                         </c:url>
                         <a href="${url}">Supprimer</a>
+                        <c:url value="/gerant/carte/pizza/upd/${pizza.id}" var="url">
+                        </c:url>
+                        <a href="${url}">Modifier</a>
 					</fieldset>
 				</c:forEach>
 		</fieldset>

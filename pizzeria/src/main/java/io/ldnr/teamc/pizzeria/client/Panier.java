@@ -3,14 +3,14 @@ package io.ldnr.teamc.pizzeria.client;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.springframework.context.annotation.Scope;
-
 import io.ldnr.teamc.pizzeria.datas.pizza.Pizza;
+import io.ldnr.teamc.pizzeria.datas.user.User;
 
 public class Panier {
 
 	private float montant=0f;
 	private float reduction=0.1f;
+	private User user;
 	
 	private Set<Pizza> pizzas;
 	 
@@ -32,6 +32,14 @@ public class Panier {
 		}
 	}
 	
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 	public Pizza findById(Integer id) {
 		
 		for(Pizza p:pizzas) {

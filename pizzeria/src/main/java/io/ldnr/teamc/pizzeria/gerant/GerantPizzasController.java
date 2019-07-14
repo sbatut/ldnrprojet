@@ -81,6 +81,75 @@ public class GerantPizzasController {
 		 }
 	 }
 	 
+	 @GetMapping(path= "carte/pizza/upd/{id}")
+	 public String updFromPizza(ModelMap pModel,@PathVariable("id") int id) {
+		 
+
+			 Optional<Pizza> optPizza = repoPizza.findById(id);
+			 Iterable<Ingredient> ingredient = repoIngredient.findAll();
+			 
+			 if (optPizza.isPresent())
+			 {
+				 Pizza pizza = optPizza.get();
+				 pModel.addAttribute("pizza", pizza);
+				 pModel.addAttribute("listeingredients", ingredient);
+				 
+				 return "gerant/gestionupdpizza";
+			 }
+		 
+		 return "redirect:/gerant/carte";
+	 }
+	 
+	 @PostMapping(path= "carte/pizza/upd")
+	 public String updPizza(ModelMap pModel,@RequestParam Map<String,String> allParams) {
+		 
+		 if (allParams.containsKey("action") && allParams.get("action").equals("modifier"))
+		 {
+		 
+			 int idPizza = Integer.parseInt(allParams.get("id"));
+			 Optional<Pizza> optPizza = repoPizza.findById(idPizza);
+
+			 if(optPizza.isPresent())
+			 {
+				 Pizza pizza=optPizza.get();
+		
+			 
+				 String libelle =allParams.get("libelle");
+				 float prix = Float.parseFloat(allParams.get("prix"));
+				 			 
+				 pizza.setLibelle(libelle);
+				 pizza.setPrix(prix);
+			 
+			 
+				 pizza.Clear();
+				 //ajout des ingredients des case a cochez du formulaire
+				 for (Map.Entry<String, String> param : allParams.entrySet())
+				 {
+					 if (param.getKey().startsWith("ingre"))
+					 {
+						 int idIngredient = Integer.parseInt(param.getValue());
+						 Optional<Ingredient> optIngredient = repoIngredient.findById(idIngredient);
+						 if(optIngredient.isPresent())
+						 {
+							 Ingredient ingredient = optIngredient.get();
+							 pizza.addCompoIngredient(ingredient);
+						 }
+					 }
+					 
+				 }
+			 			 
+				 repoPizza.save(pizza);
+				 
+			 }
+			 return "redirect:/gerant/carte";
+		 
+		 }
+		 else
+		 {
+			 return "redirect:/gerant/carte";
+		 }
+	 }	 
+	 
 	 @GetMapping(path = "carte/pizza/del")
 	 public String delPizza(ModelMap pModel,@RequestParam String id) {
 		 int idPizza = Integer.parseInt(id);
