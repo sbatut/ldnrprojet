@@ -10,7 +10,7 @@
 <c:url value="/css/users.css" var="jstlCss" />
 <link href="${jstlCss}" rel="stylesheet" />
 
-<title>Inscription page</title>
+<title>Error login page</title>
 </head>
 <body>
 <div id="headerfixed">
@@ -29,15 +29,15 @@
   <div class="form-panel one">
     
     <div class="form-header">
-	<h1>Error !! Les informations fournies ne sont pas valides !</h1>
+		<h1>Oups !!! Erreur mot de passe</h1>
+	<p>Les 2 mots de passe saisis ne sont pas identiques</p>
     </div>
     
     <div class="form-content">
 			   
-		<p style="text-align:center;">Merci de recommencer</p>
+			<p style="text-align:center;">Merci de recommencer</p>
 
 	<p style="text-align:center;"><a href="/inscription">Revenir en arrière</a></p>
-
     </div>
   </div>
   

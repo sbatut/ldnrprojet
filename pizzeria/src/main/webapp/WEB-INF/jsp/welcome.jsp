@@ -27,11 +27,79 @@
 
 <div id="maincontent">
 <div class="innertube">
+<div class="container">
 
-<h1>Bienvenue sur le site MIAM-MIAM</h1>
+<div class="welcomeBlockH1">
+<h1 class="text-secondary">Bienvenue sur le site MIAM-MIAM</h1>
+</div>
 
-<p style="text-align: center">Les menus du jour</p>
+<div class="row">
+  <div class="col">
+  	<figure>
+  		<img alt="pizza miam miam" src="images/r1.jpg">
+  		<figcaption>Pizza du jour</figcaption>
+  		<p>Le top</p>
+   </figure>
+ </div>
+  <div class="col">
+ 	<figure>
+ 		<img alt="pizza miam miam" src="images/r2.jpg">
+ 		<figcaption>Pizza du jour</figcaption>
+ 		<p>Le top</p>
+  </figure>
+</div>
+ <div class="col">
+ 	<figure>
+ 		<img alt="pizza miam miam" src="images/r3.jpg">
+ 		<figcaption>Pizza du jour</figcaption>
+ 		<p>Le top</p>
+  </figure>
+</div>
+  <div class="col">
+ 	<figure>
+ 		<img alt="pizza miam miam" src="images/r4.jpg">
+ 		<figcaption>Pizza du jour</figcaption>
+ 		<p>Le top</p>
+  </figure>
+</div>
+</div>
+<div class="row">
+  <div class="col">
+  	<figure>
+  		<img alt="pizza miam miam" src="images/r5.jpg">
+  		<figcaption>Pizza du jour</figcaption>
+  		<p>Le top</p>
+   </figure>
+ </div>
+  <div class="col">
+ 	<figure>
+ 		<img alt="pizza miam miam" src="images/r6.jpg">
+ 		<figcaption>Pizza du jour</figcaption>
+ 		<p>Le top</p>
+  </figure>
+</div>
+ <div class="col">
+ 	<figure>
+ 		<img alt="pizza miam miam" src="images/r7.jpg">
+ 		<figcaption>Pizza du jour</figcaption>
+ 		<p>Le top</p>
+  </figure>
+</div>
+  <div class="col">
+ 	<figure>
+ 		<img alt="pizza miam miam" src="images/r8.jpg">
+ 		<figcaption>Pizza du jour</figcaption>
+ 		<p>Le top</p>
+  </figure>
+</div>
+</div>
 
+<div class="row">
+<div class="col">
+<button type="button" class="btn btn-success accbtn"><a href="/client/choix" role="button">CLiquer pour selectionner une pizza</a></button>
+</div>
+</div>
+</div>
 </div>
 </div>
 

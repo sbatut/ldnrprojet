@@ -1,4 +1,4 @@
-
+@import url(https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css);
 body{
 margin: 0;
 padding: 0;
@@ -125,3 +125,30 @@ color: #fff;
 border-bottom: 3px solid #DAD6B7;
 background: #00BEE4;
 }
+
+/* ********** Ajout images sur welcome page ************* */
+
+figure img{
+	width:100%;
+	height:100%;
+}
+figcaption{
+	color:blue;
+}
+figure p{
+	color:red;
+	}
+.welcomeBlockH1{
+	width:100;
+	margin:30px 5px;
+	padding:10px;
+}
+.accbtn{
+	margin: 30px auto;
+	display:block;
+
+}
+.accbtn a{
+		color:white;
+
+	}

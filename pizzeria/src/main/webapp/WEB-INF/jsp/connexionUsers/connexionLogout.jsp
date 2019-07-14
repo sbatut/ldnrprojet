@@ -13,6 +13,11 @@
 <title>Inscription page</title>
 </head>
 <body>
+<div id="headerfixed">
+<nav class="nav nav-pills nav-justified">
+  <a class="nav-link active" href="/">Accueil</a>
+</nav>
+</div>
 <div class="container">
 
   
