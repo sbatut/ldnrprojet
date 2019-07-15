@@ -3,6 +3,8 @@ package io.ldnr.teamc.pizzeria.gerant;
 import java.util.Map;
 import java.util.Optional;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -151,7 +153,13 @@ public class GerantPizzasController {
 	 }	 
 	 
 	 @GetMapping(path = "carte/pizza/del")
-	 public String delPizza(ModelMap pModel,@RequestParam String id) {
+	 public String delPizza(ModelMap pModel,@RequestParam String id,HttpServletRequest request) {
+		 
+		 if (request.getSession().getAttribute("SESSION_ADMIN") ==null)
+		 {
+			 return  "redirect:/";
+		 }
+		 
 		 int idPizza = Integer.parseInt(id);
 		 Optional<Pizza> optPizza = repoPizza.findById(idPizza);
 		 if(optPizza.isPresent())

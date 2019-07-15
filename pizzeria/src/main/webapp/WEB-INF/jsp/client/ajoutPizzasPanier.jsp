@@ -43,7 +43,7 @@
 					</fieldset>
 			<fieldset>
 			
-            <input type="submit" name="ok" value="Ajouter">
+            <input type="submit" name="ok" value="Ajouter au Panier">
             
 		</fieldset>
 		</form>
@@ -51,12 +51,12 @@
 			<!-- Ajout des pizzas selectionnées-->
 			<c:url value="panier/confirm" var="url">
             </c:url>
-            <a href="${url}">Valider votre commande</a>
+            <!-- <a href="${url}">Valider votre commande</a> -->
             
             <!-- Ajout des pizzas selectionnées-->
 			<c:url value="/client/panier/afficher" var="url">
             </c:url>
-            <a href="${url}">Afficher votre panier</a>
+            <!-- <a href="${url}">Afficher votre panier</a>-->
 
 		</fieldset>
 		</div> </div>

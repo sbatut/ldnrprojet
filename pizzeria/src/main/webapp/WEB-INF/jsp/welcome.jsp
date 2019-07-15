@@ -36,28 +36,28 @@
 <div class="row">
   <div class="col">
   	<figure>
-  		<img alt="pizza miam miam" src="images/r1.jpg">
+  		<img alt="pizza miam miam" src="/images/r1.jpg">
   		<figcaption>Pizza du jour</figcaption>
   		<p>Le top</p>
    </figure>
  </div>
   <div class="col">
  	<figure>
- 		<img alt="pizza miam miam" src="images/r2.jpg">
+ 		<img alt="pizza miam miam" src="/images/r2.jpg">
  		<figcaption>Pizza du jour</figcaption>
  		<p>Le top</p>
   </figure>
 </div>
  <div class="col">
  	<figure>
- 		<img alt="pizza miam miam" src="images/r3.jpg">
+ 		<img alt="pizza miam miam" src="/images/r3.jpg">
  		<figcaption>Pizza du jour</figcaption>
  		<p>Le top</p>
   </figure>
 </div>
   <div class="col">
  	<figure>
- 		<img alt="pizza miam miam" src="images/r4.jpg">
+ 		<img alt="pizza miam miam" src="/images/r4.jpg">
  		<figcaption>Pizza du jour</figcaption>
  		<p>Le top</p>
   </figure>
@@ -66,28 +66,28 @@
 <div class="row">
   <div class="col">
   	<figure>
-  		<img alt="pizza miam miam" src="images/r5.jpg">
+  		<img alt="pizza miam miam" src="/images/r5.jpg">
   		<figcaption>Pizza du jour</figcaption>
   		<p>Le top</p>
    </figure>
  </div>
   <div class="col">
  	<figure>
- 		<img alt="pizza miam miam" src="images/r6.jpg">
+ 		<img alt="pizza miam miam" src="/images/r6.jpg">
  		<figcaption>Pizza du jour</figcaption>
  		<p>Le top</p>
   </figure>
 </div>
  <div class="col">
  	<figure>
- 		<img alt="pizza miam miam" src="images/r7.jpg">
+ 		<img alt="pizza miam miam" src="/images/r7.jpg">
  		<figcaption>Pizza du jour</figcaption>
  		<p>Le top</p>
   </figure>
 </div>
   <div class="col">
  	<figure>
- 		<img alt="pizza miam miam" src="images/r8.jpg">
+ 		<img alt="pizza miam miam" src="/images/r8.jpg">
  		<figcaption>Pizza du jour</figcaption>
  		<p>Le top</p>
   </figure>
